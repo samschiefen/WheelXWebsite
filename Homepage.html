@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://storage.cloud.google.com/example_web_bucket/css/reset.css" />
+  <link rel="stylesheet" href="https://storage.cloud.google.com/example_web_bucket/css/stylesheet.css" />
+  <script src="https://storage.cloud.google.com/example_web_bucket/js/dashboard.js"></script>
+  <script src="https://storage.cloud.google.com/example_web_bucket/js/getFAQData.js"></script>
+  <script src="https://storage.cloud.google.com/example_web_bucket/js/AdminSettings.js"></script>
+  <script src="https://storage.cloud.google.com/example_web_bucket/js/getLogoNameData.js"></script> 
+  <script src="https://storage.cloud.google.com/example_web_bucket/js/Wallet.js"></script> 
+  <title id="pageTitle"> Wheel-x Incorporated </title>
+</head>
+<body>
+  <section id="HeaderSection" class="header">
+    <div class="header-text"><img src="https://storage.cloud.google.com/example_web_bucket/images/logo_placeholder.png" alt="Logo" width="60px" height="60px" class="logoImage"></div>
+    <div id="regHeader" class="headerButtons headers logoImage">
+      <button id="getEstimateButton" class=" pageButton button">Get Estimate</button>
+      <button id="requestPickupButton" class="pageButton button">Request Pickup</button>
+      <button id="requestPurchaseButton" class="pageButton button">Request Purchase</button>
+      <button id="FAQButton" class="pageButton button">FAQ</button>
+    </div>
+    <div id="adminHeader" class="adminHeaderButtons headers hidden">
+      <button id="adminDashboardButton" class="pageButton button">Dashboard</button>
+    </div>
+    <div id="regDropdown" class="dropdown-container">
+      <p id="signInButton" class="dropdown pageButton">Sign in</p>
+      <div class="dropdown-content">
+        <a href="#" id="adminDropdownButton" class="dropdown-item">Sign in as Admin</a>
+        <a href="#" id="userDropdownButton" class="dropdown-item">Sign in as User</a>
+      </div>
+    </div>
+    <div id="userDropdown" class="dropdown-container hidden">
+      <img src="https://storage.cloud.google.com/example_web_bucket/images/profile.jpg" alt="Dropdown" width="40px" height="40px" class="dropdown">
+      <div class="dropdown-content">
+        <a href="#" id="profileButton" class="pageButton dropdown-item">Profile</a>
+        <a href="#" id="walletButton" class="pageButton dropdown-item">Wallet</a>
+        <a href="#" id="workflowButton" class="pageButton dropdown-item">View Orders</a>
+        <a href="#" id="profileSettingsButton" class="pageButton dropdown-item">Settings</a>
+        <a href="#" id="userLogout" class="dropdown-item">Sign Out</a>
+      </div>
+    </div>
+    <div id="adminDropdown" class="dropdown-container hidden">
+      <img src="https://storage.cloud.google.com/example_web_bucket/images/profile.jpg" alt="Dropdown" width="40px" height="40px" class="dropdown">
+      <div class="dropdown-content">
+        <a href="#" id="adminProfileButton" class="pageButton dropdown-item">Profile</a>
+        <a href="#" id="adminSettingsButton" class="pageButton dropdown-item">Admin Settings</a>
+        <a href="#" id="adminLogout" class="dropdown-item">Sign Out</a>
+      </div>
+    </div>
+  </section>
+  <section id="signIn" class="page hidden">
+    <div>
+      <h1>User Login</h1>
+      <form id="signInForm">
+        <input type="email" id="signInEmail" placeholder="Email">
+        <input type="password" id="signInPassword" placeholder="Password">
+        <input type="submit" value="Sign In">
+      </form>
+      <button id="createAccountButton" class="pageButton" >Create an Account</button>
+    </div>
+  </section>
+  <section id="createAccount" class="page hidden">
+    <div>
+      <h1>Create an Account</h1>
+      <p> Please input the following information to create your Wheel-x account:</p>
+      <form id="signUpForm" method="POST">
+
+        <div class="name-group">
+          <label for="first_name">Name:</label>
+          <input type="text" id="first_name" placeholder="First Name">
+          <input type="text" id="middle_name" placeholder="Middle" >
+          <input type="text" id="last_name" placeholder="Last">
+        </div>
+
+        <div class="form-group">
+           <label for="signUpGender">Gender:</label>
+           <select id="signUpGender" required>
+             <option value="male">Male</option>
+             <option value="female">Female</option>
+             <option value="other">Other</option>
+           </select>
+
+           <label for="signUpDob">Date of Birth:</label>
+           <input type="date" id="signUpDob" required>
+         </div>
+
+        <label for="signUpEmail">Email:</label>
+        <input type="email" id="signUpEmail">
+
+        <label for="signUpPhone">Phone Number:</label>
+        <input type="tel" id="signUpPhone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+
+        <label for="signUpPassword">Create Password:</label>
+        <input type="password" id="wignUpPassword" minlength="8" required>
+
+        <input type="submit" value="Create Account">
+      </form>
+    </div>
+  </section>
+  <section id="dashboard" class="page">
+    <div class="homepageSection" id="overview">
+      <h1 id="mainHeading"><span>Recycle</span> and get <span>rewarded</span></h1>
+      <p>Our company is dedicated to increasing recycling and promoting a positive environmental impact for our planet!</p>
+      <p>With our deposit-reward system, individuals and organizations can return different types of recyclable materals and get compensated for their returns.</p>
+      <h2>Fast, Organized, and Easy to use.</h2>
+      <img src="https://storage.cloud.google.com/example_web_bucket/images/garbage_truck.jpg" alt="Recycling truck" id="dashboardImg">
+    </div>
+  
+    <div class="homepageSection" id="getEstimate">
+      <h1>Get an Estimate</h1>
+      <p>Just enter your pickup address below! </p>
+      <form id="pickupEstimateForm">
+        <input type="text" id="pickupAddress" name="pickupAddress" placeholder="Pickup Address" required><br>
+        
+        <button id="estimateButton" type="submit">Get Estimate</button>
+      </form>
+    </div>
+  
+    <div class="homepageSection" id="FAQ">
+      <h2>Frequently Asked Questions</h2>
+      <p>Have Questions?</p>
+      <dl>
+      </dl>
+    </div>
+  </section>
+  <section id="profile" class="page hidden">
+    <div class="container">
+      <img id="userProfileIcon" src="https://storage.cloud.google.com/example_web_bucket/images/profile.jpg" alt="Profile Picture" width="240" height="240">
+      <h1 id="username">James Smith</h1>
+      <div class="profile-info">
+        <label for="gender">Gender:</label>
+        <p id="gender">Male</p>
+      </div><div class="profile-info">
+        <label for="email">Email:</label>
+        <p id="email">jamessmith@gmail.com</p>
+      </div><div class="profile-info">
+        <label for="phone">Phone number:</label>
+        <p id="phone">306-933-6764</p>
+      </div><div class="profile-info">
+        <label for="address">Address:</label>
+        <p id="address">201 21st Street East, S7K 0B8, Saskatoon, SK, Canada</p>
+      </div><div class="profile-info">
+        <label for="verification">Residential Verification:</label>
+        <p id="verification">True</p>
+      </div><div class="profile-info">
+        <label for="total-money">Total Money:</label>
+        <p id="total-money">$1000</p>
+      </div>
+    </div>
+  </section>
+  <section id="adminProfile" class="page hidden">
+    <div class="container">
+      <img id="adminProfileIcon" src="https://storage.cloud.google.com/example_web_bucket/images/profile.jpg" alt="Profile Picture" width="240" height="240">
+      <h1 id="adminUsername">Admin</h1>
+      <div class="profile-info">
+        <label for="email">Email:</label>
+        <p id="email">admin@gmail.com</p>
+      </div><div class="profile-info">
+        <label for="phone">Phone number:</label>
+        <p id="phone">306-933-6764</p>
+      </div><div class="profile-info">
+        <label for="address">Address:</label>
+        <p id="address">201 21st Street East, S7K 0B8, Saskatoon, SK, Canada</p>
+      </div>
+    </div>
+  </section>
+  <section id="adminDashboard" class="page hidden">
+    <div id="userStats">
+      <div id="registeredToday" class="statsDiv">
+        <img src="https://storage.cloud.google.com/example_web_bucket/images/user_plus.png" alt="User plus" width="70px" height="70px" id="userPlus">
+        <div class="statsColumn">
+          <p class="light">
+            Registered Today
+          </p>
+          <p class="num">
+            0
+          </p>
+        </div>
+      </div>
+      <div id="onlineUsers" class="statsDiv">
+        <img src="https://storage.cloud.google.com/example_web_bucket/images/user_clock.png" alt="User clock" width="70px" height="70px" id="userClock">
+        <div class="statsColumn">
+          <p class="light">
+            Online Users 
+          </p>
+          <p class="num">
+            1
+          </p>
+        </div>
+      </div>
+      <div id="unconfirmedUsers" class="statsDiv">
+        <img src="https://storage.cloud.google.com/example_web_bucket/images/user_slash.png" alt="User slash" width="70px" height="70px" id="userLine">
+        <div class="statsColumn">
+          <p class="light">
+            Unconfirmed Users
+          </p>
+          <p class="num">
+            0
+          </p>
+        </div>
+      </div>
+      <div id="totalUsers" class="statsDiv">
+        <img src="https://storage.cloud.google.com/example_web_bucket/images/user_total.png" alt="User total" width="70px" height="70px" id="userTotal">
+        <div class="statsColumn">
+          <p class="light">
+            Total Users 
+          </p>
+          <p class="num">
+            3
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="latestStats">
+      <div id="latestUsers" class="latest">
+        <h6>Latest Users</h6>
+        <table class="latestTable">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Created At</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Samantha</td>
+              <td>Schiefen</td>
+              <td>1 month ago</td>
+            </tr>
+            <tr>
+              <td>Allison</td>
+              <td>Kroger</td>
+              <td>1 month ago</td>
+            </tr>
+            <tr>
+              <td>Colby</td>
+              <td>Swan</td>
+              <td>1 month ago</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="latestActivities" class="latest">
+        <h6>Latest Activities</h6>
+        <table class="latestTable">
+          <thead>
+            <tr>
+              <th>Activity</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="60%">
+                <strong class="name">Samantha Schiefen</strong>
+                <span class="action"> logged into the system</span>
+              </td>
+              <td>1 second ago</td>
+            </tr>
+            <tr>
+              <td width="60%">
+                <strong class="name">Allison Kroger</strong>
+                <span class="action"> logged into the system</span>
+              </td>
+              <td>2 days ago</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </section>
+  <section id="adminSettings" class="page hidden">
+    <article>
+      <nav>
+        <button class="clicked" id="general">General</button>
+        <button id="security">Security</button>
+      </nav>
+      <div id="adminSettingsPage">
+        <form method="POST" action="" enctype="multipart/form-data" id="nameLogoForm" class="settingsPage">
+          <div id="logoPic">
+            <img id="settingsLogo" src="https://storage.cloud.google.com/example_web_bucket/images/logo_placeholder.png" alt="logo" class="logoImage">
+            <input type="file" name="logo" value="Update logo">
+          </div>
+          <div id="appNameDiv" class="settingsDiv">
+            <label for="appName">App Name</label>
+            <input type="text" name="appName" id="appName" placeholder="App Name">
+          </div>
+          <div class="saveButtons">
+            <input type="reset" value="Cancel">
+            <input type="submit" value="Save Changes">
+          </div>
+        </form>
+        <form method="POST" action="" id="rolesPermissionsForm" class="settingsPage">
+          <div id="rolesPermissionsSettings" class="settingsDiv">
+            <table>
+              <thead>
+                <tr>
+                  <th>Role</th>
+                  <th>Create</th>
+                  <th>Read</th>
+                  <th>Update</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Admin</td>
+                  <td>
+                    <input type="checkbox" id="admincreate" name="admincreate" checked>
+                  </td>
+                  <td>
+                    <input type="checkbox" id="adminread" name="adminread" checked>
+                  </td>
+                  <td>
+                    <input type="checkbox" id="adminupdate" name="adminupdate" checked>
+                  </td>
+                  <td class="last-cell">
+                    <input type="checkbox" id="admindelete" name="admindelete" checked>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Users</td>
+                  <td>
+                    <input type="checkbox" id="userscreate" name="userscreate">
+                  </td>
+                  <td>
+                    <input type="checkbox" id="usersread" name="usersread" checked>
+                  </td>
+                  <td>
+                    <input type="checkbox" id="usersupdate" name="usersupdate">
+                  </td>
+                  <td class="last-cell">
+                    <input type="checkbox" id="usersdelete" name="usersdelete">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="saveButtons">
+            <input type="reset" value="Cancel">
+            <input type="submit" value="Save Changes">
+          </div>
+        </form>
+        <form method="POST" action="" id="wasteSettingsForm" class="settingsPage">
+          <div id="wasteSettingsDiv" class="settingsDiv">
+            <div class="List">
+              <h3>Waste Types: </h3>
+              <ul id="wasteTypesList">
+                <li>Plastic
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Glass Bottles
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Aluminum Cans
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+              </ul>
+              <input id="addWasteTypeInput" type="text" name="addWasteType" placeholder="Add New Waste Type">
+              <input id="addWasteTypeBtn" type="button" value="Add Waste Type" name="Add Waste Type">
+            </div>
+            <div class="List">
+              <h3>Volumes: </h3>
+              <ul id="volumesList">
+                <li>Milliliters (ml)
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Centiliters (cl)
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Liters (l)
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+              </ul>
+              <input id="addVolumeInput" type="text" name="addVolume" placeholder="Add New Volume">
+              <input id="addVolumeBtn" type="button" value="Add Volume" name="Add Volume">
+            </div>
+            <div class="List">
+              <h3>Sizes: </h3>
+              <ul id="sizesList">
+                <li>Less than 1 Liter
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>1 to 2 Liters
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Greater than 2 Liters
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+              </ul>
+              <input id="addSizeInput" type="text" name="addSize" placeholder="Add New Size">
+              <input id="addSizeBtn" type="button" value="Add Size" name="Add Size">
+            </div>
+            <div>
+              <h3>Weights: </h3>
+              <ul id="weightsList">
+                <li>Pounds (lb)
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Kilograms (kg)
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+              </ul>
+              <input id="addWeightInput" type="text" name="addWeight" placeholder="Add New Weight">
+              <input id="addWeightBtn" type="button" value="Add Weight" name="Add Weight">
+            </div>
+          </div>
+          <div class="saveButtons">
+            <input type="reset" value="Cancel">
+            <input type="submit" value="Save Changes">
+          </div>
+        </form>
+        <form method="POST" action="" id="priceSettingForm" class="settingsPage">
+          <div id="priceSetting" class="settingsDiv">
+              <h3>Price Settings</h3><br>
+            
+              <div id="wasteTypeSettings" class="setting">
+                <label for="wasteType">Waste Type:</label>
+                <select id="wasteType" name="wasteType">
+                </select>
+                
+                <div class="setting">
+                  <p>Calculate Price By:</p>
+                  <span>Size x Quantity</span>
+                </div>
+              </div>
+
+              <div class="setting" id="sizeQuantitySetting">
+                <label for="size">Size:</label>
+                <select id="size" name="size">
+                </select>
+  
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" step="1" value="1">
+              </div>
+  
+              <div class="setting">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" min="0" step="0.01">
+              </div>
+          </div>
+    
+          <input type="submit" value="Save changes">
+        </form>
+        <form method="POST" action="" id="workflowSettingsForm" class="settingsPage">
+          <div id="workflowSettingsDiv" class="settingsDiv">
+            <div id="existingStages" class="List">
+              <h3>Current Workflow Stages: </h3>
+              <ol id="stagesList">
+                <li>Draft
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Requested
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Accepted
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>In-transit
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Delivered
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Verified
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Paid
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+              </ol>
+            </div>
+            <div id="addStage">
+              <h3>Add New Stage: </h3>
+              <label for="stageName">Stage Name: </label>
+              <input type="text" id="stageName" name="stageName">
+              <div>
+                <input type="button" value="Add Stage" name="Add" class="saveButtons">
+              </div>
+            </div>
+          </div>
+          <div class="saveButtons">
+            <input type="reset" value="Cancel">
+            <input type="submit" value="Save Changes">
+          </div>
+        </form>
+        <form method="POST" action="" id="payMethodsForm" class="settingsPage">
+          <div id="payMethodSettings" class="settingsDiv">
+            <h3>Existing Payment: </h3>
+            <div id="existingPaymentMethods" class="List">
+              <ul id="payMethodList">
+                <li>Interac
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Bank Transfer
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+                <li>Voucher
+                  <input type="button" value="Remove" name="Remove" class="remove">
+                </li>
+              </ul>
+            </div>
+            <div id="addPayMethod">
+              <h3>Add New Payment Method: </h3>
+              <label for="payMethodName">Payment Method Name: </label>
+              <input type="text" id="payMethodName" name="payMethodName">
+              <div>
+                <input type="button" value="Add Payment Method" name="Add" class="saveButtons">
+              </div>
+            </div>
+          </div>
+          <div class="saveButtons">
+            <input type="reset" value="Cancel">
+            <input type="submit" value="Save Changes">
+          </div>
+        </form>
+        <form method="POST" action="" id="FAQEntryForm" class="settingsPage">
+          <div id="FAQSettingsDiv" class="settingsDiv">
+            <div id="existingFAQEntries" class="List">
+              <h3>Current FAQ Entries: </h3>
+              <dl id="FAQList">
+              </dl>
+            </div>
+            <div id="addFAQEntry">
+              <h3>Add New FAQ Entry: </h3>
+              <label for="question">Question: </label>
+              <input type="text" id="question" name="question">
+              <label for="answer">Answer: </label>
+              <input type="text" id="answer" name="answer">
+              <div>
+                <input type="button" id="addFaq" value="Add FAQ Entry" name="Add" class="saveButtons">
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <form method="POST" action="" id="changePasswordForm" class="settingsPage">
+          <div id="changePassword" class="settingsDiv">
+            <h1>Password</h1>
+            <h6>Change Password</h6>
+            <label for="currentPassword">Current Password:</label>
+            <input type="password" id="currentPassword" name="currentPassword" required="">
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required="">
+            <label for="confirmNewPassword">Confirm New Password:</label>
+            <input type="password" id="confirmNewPassword" name="confirmNewPassword" required="">
+          </div>
+          <div class="saveButtons">
+            <input type="reset" value="Cancel">
+            <input type="submit" value="Save Changes">
+          </div>
+        </form>
+        <div id="devicesDiv" class="settingsPage settingsDiv">
+          <h1>Devices</h1>
+          <ul id="devicesList">
+            <div class="devices">
+              <div>
+                <h3>Chrome on Windows 10.0</h3>
+                <h6>1 hour ago</h6>
+                <p>Gatineau City (Region of Quebec), Canada</p>
+              </div>
+              <button class="logout">Logout</button>
+            </div>
+            <div class="devices">
+              <div>
+                <h3>Chrome on Windows 10.0</h3>
+                <h6>45 minutes ago</h6>
+                <p>Minneapolis City (Region of Minnesota), United States</p>
+              </div>
+              <button class="logout">Logout</button>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </article>
+    <aside id="sideSettings">
+      <button class="clicked" id="nameLogo">App Name & Logo</button><br>
+      <button id="rolesPermission">Roles & Permission</button><br>
+      <button id="wasteSettings">Waste Settings</button><br>
+      <button id="priceSettings">Price Settings</button><br>
+      <button id="workflowSettings">Workflow Settings</button><br>
+      <button id="payMethods">Pay methods</button><br>
+      <button id="FAQSettings">FAQ</button><br>
+    </aside>
+  </section>
+  <section id="workflow" class="page group_header hidden">
+    <header>
+      <h1>Current Orders</h1>
+    </header>
+    <div class="order">
+      <div class="order-details">
+        <h2>Order #12345</h2>
+        <p><strong>Status:</strong> In-transit</p>
+      </div>
+      <div class="workflow">
+        <table class="workflow">
+          <tr>
+            <td align="center">
+              <div>Draft</div>
+              <div class="workflow-dot"></div>
+            </td>
+            <td align="center">
+              <div>Requested</div>
+              <div class="workflow-dot"></div>
+            </td>
+            <td align="center">
+              <div>Accepted</div>
+              <div class="workflow-dot"></div>
+            </td>
+            <td align="center">
+              <div>In-transit</div>
+              <div class="workflow-dot completed"></div>
+            </td>
+            <td align="center">
+              <div>Delivered</div>
+              <div class="workflow-dot"></div>
+            </td>
+            <td align="center">
+              <div>Verified</div>
+              <div class="workflow-dot"></div>
+            </td>
+            <td align="center">
+              <div>Paid</div>
+              <div class="workflow-dot"></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="order">
+      <div class="order-details">
+        <h2>Order #54321</h2>
+        <p><strong>Status:</strong> Requested</p>
+      </div>
+      <table class="workflow">
+        <tr>
+          <td align="center">
+            <div>Draft</div>
+            <div class="workflow-dot"></div>
+          </td>
+          <td align="center">
+            <div>Requested</div>
+            <div class="workflow-dot completed"></div>
+          </td>
+          <td align="center">
+            <div>Accepted</div>
+            <div class="workflow-dot"></div>
+          </td>
+          <td align="center">
+            <div>In-transit</div>
+            <div class="workflow-dot"></div>
+          </td>
+          <td align="center">
+            <div>Delivered</div>
+            <div class="workflow-dot"></div>
+          </td>
+          <td align="center">
+            <div>Verified</div>
+            <div class="workflow-dot"></div>
+          </td>
+          <td align="center">
+            <div>Paid</div>
+            <div class="workflow-dot"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </section>
+  <section id="wallet" class="page group_header hidden">
+    <div id="walletDiv">
+      <header>
+        <h1>Wallet</h1>
+      </header>
+      <div id="wallet-balance">
+        <h1>Current Balance</h1>
+        <h6>$0</h6>
+      </div>
+      <div class="wallet">
+        <div class="wallet-details">
+          <h6>Pending</h6>
+          <span id="toggle-pending">&#11161;</span>
+        </div>
+        <div id="pending" class="up">
+          <ul>
+            <li>
+              <span>Order #12345</span>
+              <span>$50.00</span>
+            </li>
+            <li>
+              <span>Order #54321</span>
+              <span >$25.00</span>
+            </li>
+          </ul>
+        </div>
+        <div class="wallet-details">
+          <h6>Paid</h6>
+          <span id="toggle-paid">&#11163;</span>
+        </div>
+        <div id="paid" class="down">
+          <ul>
+            <li>No paid orders</li>
+          </ul>
+        </div>
+        <div class="wallet-details">
+          <h6>History</h6>
+          <span id="toggle-history">&#11163;</span>
+        </div>
+        <div id="history" class="down">
+          <ul>
+            <li>No previous orders</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="profileSettings" class="group page hidden">
+    <div class="profile-section user-info">
+      <h3>User</h3>
+      <form>
+        <img id="profile-icon" src="https://storage.cloud.google.com/example_web_bucket/images/profile.jpg" alt="Profile Icon" width="60" height="60">
+        <button id="updateProfilePic">Update photo</button>
+        <button id="removeProfilePic">Remove photo</button>
+        <br></br>
+        <input type="text" value="firstName" placeholder="First Name">
+        <input type="text" value="lastName" placeholder="Last Name">
+        <br></br>
+        <span class="gender">Gender:</span><br>
+        <input type="checkbox" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="checkbox" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <input type="checkbox" id="other" name="gender" value="other">
+        <label for="other">Other</label><br>
+        <br></br>
+        <label for="dob">Date of Birth:</label>
+       <input type="date" id="dob" name="dob">
+       <br></br>
+      </form>
+    <button id="save-button">Save Changes</button>
+    </div>
+
+    <div class="profile-section contact-info">
+    <h3>Contact</h3>
+    <form>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+        <br><br>
+        <label for="telephone">Telephone Number:</label>
+        <input type="tel" id="telephone" name="telephone" placeholder="Enter your telephone number">
+        <br></br>
+    </form>
+    <button id="save-button">Save Changes</button>
+    </div>
+
+
+    <div class="profile-section adress-info">
+      <h3>Address</h3>
+      <form>
+        <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="" disabled selected>Select Country</option>
+            <option value="USA">United States</option>
+            <option value="UK">United Kingdom</option>
+            <option value="Canada">Canada</option>
+          </select><br></br>
+        <label for="address">Address</label>
+          <input type="text" id="address"><br></br>
+        <label for="apartment">Apartment, suite, etc.</label>
+          <input type="text" id="apartment"><br></br>
+        <label for="city">City</label>
+          <input type="text" id="city"><br></br>
+        <label for="zip">ZIP code</label>
+          <input type="text" id="zip"><br></br>
+      </form>
+      <button id="save-button">Save Changes</button>
+      </div>
+  </section>
+  <section id="requestPickup" class="group page hidden">
+    <div class="group_header">
+      <h1>Request Pickup</h1>
+    </div>
+    <form id="requestPickupForm" action="" method="post">
+      <label for="pickupAddressInput">Pickup Address:</label>
+      <input type="text" id="pickupAddressInput" name="pickupAddressInput" required>
+
+      <label for="wasteTypeSelect">Waste Type:</label>
+      <select id="wasteTypeSelect" name="wasteTypeSelect" required>
+        <option value="none">Select Waste Type</option>
+      </select>
+
+      <label for="pickupQuantity">Quantity:</label>
+      <input type="number" id="pickupQuantity" name="pickupQuantity" min="0" required>
+
+      <label for="wasteSize">Volume:</label>
+      <select id="wasteSize" name="wasteSize" required>
+        <option value="none">Select Waste Size</option>
+      </select>
+        
+      <label for="weightUnit">Weight (optional):</label>
+      <select id="weightUnit" name="wasteUnit">
+        <option value="none">Select Waste Unit</option>
+      </select>
+      <input type="number" id="weight" name="weight" min="0">
+
+      <button type="submit">Submit Request</button>
+    </form>
+    <div id="error-message" style="display: none; color: red;">Please select a value for all selects</div>
+  </section>
+  <section id="requestPurchase" class="group page hidden">
+    <div class="group_header">
+      <h1>Request Purchase</h1>
+    </div>
+    <form id="requestPurchaseForm" action="" method="post">
+      <label for="dropAddress">Drop Off Address:</label>
+      <input type="text" id="dropAddress" name="dropAddress" required>
+
+      <label for="Verified">Verified Waste Available:</label>
+      <select id="Verified" name="Verified" required>
+        <option value="none">Select Waste Type</option>
+      </select>
+
+      <label for="Time">Pickup Time:</label>
+      <select id="Time" name="Time" required>
+        <option value="none">Select Pickup Time</option>
+        <option value="12PM">12 PM</option>
+        <option value="2PM">2 PM</option>
+        <option value="4PM">4 PM</option>
+        <option value="6PM">6 PM</option>
+      </select>
+
+      <label for="purchaseQuantity">Quantity:</label>
+      <input type="number" id="purchaseQuantity" name="purchaseQuantity" min="0" max="10" required>
+
+      <label for="wasteSizeSelect">Volume:</label>
+      <select id="wasteSizeSelect" name="wasteSizeSelect" required>
+        <option value="none">Select Waste Size</option>
+      </select><br>
+
+      <button type="submit">Request Purchase</button>
+    </form>
+    <div id="error-message2" style="display: none; color: red;">Please select a value for all selects</div>
+  </section>
+  <footer>
+    <div id="icons">
+      <a href="https://www.flaticon.com/free-icons/user" title="user icons">User icons created by SeyfDesigner - Flaticon</a>
+    </div>
+    <div id="images">
+      <a href="https://www.freepik.com/free-vector/people-sorting-garbage-recycling_3425205.htm#page=2&query=waste%20recycling&position=1&from_view=keyword&track=ais&uuid=04957afe-b82f-4c4e-ad40-1e057eaf8856">Image by rawpixel.com</a>on Freepik
+      <a href="https://www.freepik.com/free-vector/cartoon-people-throwing-out-rubbish-trash_9174404.htm#fromView=search&page=1&position=37&uuid=4b12c885-854d-4aed-9583-1b4aff2d871e">Image by pch.vector</a>on Freepik
+      <a href="https://www.freepik.com/free-vector/hand-drawn-circular-economy-infographic-template_21438989.htm#fromView=search&page=1&position=31&uuid=cbd950f4-f5d1-4bc3-ad88-4c2dc6497d30">Image by freepik</a>
+    </div>
+
+  </footer>
+</body>
+</html>
