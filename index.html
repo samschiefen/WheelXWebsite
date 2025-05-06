@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="/css/reset.css" />
-  <link rel="stylesheet" href="/css/stylesheet.css" />
-  <script src="/js/dashboard.js"></script>
-  <script src="/js/getFAQData.js"></script>
-  <script src="/js/AdminSettings.js"></script>
-  <script src="/js/getLogoNameData.js"></script> 
-  <script src="/js/Wallet.js"></script> 
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/stylesheet.css" />
+  <script src="js/dashboard.js"></script>
+  <script src="js/getFAQData.js"></script>
+  <script src="js/AdminSettings.js"></script>
+  <script src="js/getLogoNameData.js"></script> 
+  <script src="js/Wallet.js"></script> 
   <title id="pageTitle"> Wheel-x Incorporated </title>
 </head>
 <body>
   <section id="HeaderSection" class="header">
-    <div class="header-text"><img src="/images/logo_placeholder.png" alt="Logo" width="60px" height="60px" class="logoImage"></div>
+    <div class="header-text"><img src="images/logo_placeholder.png" alt="Logo" width="60px" height="60px" class="logoImage"></div>
     <div id="regHeader" class="headerButtons headers logoImage">
       <button id="getEstimateButton" class=" pageButton button">Get Estimate</button>
       <button id="requestPickupButton" class="pageButton button">Request Pickup</button>
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div id="userDropdown" class="dropdown-container hidden">
-      <img src="/images/profile.jpg" alt="Dropdown" width="40px" height="40px" class="dropdown">
+      <img src="images/profile.jpg" alt="Dropdown" width="40px" height="40px" class="dropdown">
       <div class="dropdown-content">
         <a href="#" id="profileButton" class="pageButton dropdown-item">Profile</a>
         <a href="#" id="walletButton" class="pageButton dropdown-item">Wallet</a>
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div id="adminDropdown" class="dropdown-container hidden">
-      <img src="/images/profile.jpg" alt="Dropdown" width="40px" height="40px" class="dropdown">
+      <img src="images/profile.jpg" alt="Dropdown" width="40px" height="40px" class="dropdown">
       <div class="dropdown-content">
         <a href="#" id="adminProfileButton" class="pageButton dropdown-item">Profile</a>
         <a href="#" id="adminSettingsButton" class="pageButton dropdown-item">Admin Settings</a>
@@ -103,7 +103,7 @@
       <p>Our company is dedicated to increasing recycling and promoting a positive environmental impact for our planet!</p>
       <p>With our deposit-reward system, individuals and organizations can return different types of recyclable materals and get compensated for their returns.</p>
       <h2>Fast, Organized, and Easy to use.</h2>
-      <img src="/images/garbage_truck.jpg" alt="Recycling truck" id="dashboardImg">
+      <img src="images/garbage_truck.jpg" alt="Recycling truck" id="dashboardImg">
     </div>
   
     <div class="homepageSection" id="getEstimate">
@@ -125,7 +125,7 @@
   </section>
   <section id="profile" class="page hidden">
     <div class="container">
-      <img id="userProfileIcon" src="/images/profile.jpg" alt="Profile Picture" width="240" height="240">
+      <img id="userProfileIcon" src="images/profile.jpg" alt="Profile Picture" width="240" height="240">
       <h1 id="username">James Smith</h1>
       <div class="profile-info">
         <label for="gender">Gender:</label>
@@ -150,7 +150,7 @@
   </section>
   <section id="adminProfile" class="page hidden">
     <div class="container">
-      <img id="adminProfileIcon" src="/images/profile.jpg" alt="Profile Picture" width="240" height="240">
+      <img id="adminProfileIcon" src="images/profile.jpg" alt="Profile Picture" width="240" height="240">
       <h1 id="adminUsername">Admin</h1>
       <div class="profile-info">
         <label for="email">Email:</label>
@@ -167,7 +167,7 @@
   <section id="adminDashboard" class="page hidden">
     <div id="userStats">
       <div id="registeredToday" class="statsDiv">
-        <img src="/images/user_plus.png" alt="User plus" width="70px" height="70px" id="userPlus">
+        <img src="images/user_plus.png" alt="User plus" width="70px" height="70px" id="userPlus">
         <div class="statsColumn">
           <p class="light">
             Registered Today
@@ -178,7 +178,7 @@
         </div>
       </div>
       <div id="onlineUsers" class="statsDiv">
-        <img src="/images/user_clock.png" alt="User clock" width="70px" height="70px" id="userClock">
+        <img src="images/user_clock.png" alt="User clock" width="70px" height="70px" id="userClock">
         <div class="statsColumn">
           <p class="light">
             Online Users 
@@ -189,7 +189,7 @@
         </div>
       </div>
       <div id="unconfirmedUsers" class="statsDiv">
-        <img src="/images/user_slash.png" alt="User slash" width="70px" height="70px" id="userLine">
+        <img src="images/user_slash.png" alt="User slash" width="70px" height="70px" id="userLine">
         <div class="statsColumn">
           <p class="light">
             Unconfirmed Users
@@ -200,7 +200,7 @@
         </div>
       </div>
       <div id="totalUsers" class="statsDiv">
-        <img src="/images/user_total.png" alt="User total" width="70px" height="70px" id="userTotal">
+        <img src="images/user_total.png" alt="User total" width="70px" height="70px" id="userTotal">
         <div class="statsColumn">
           <p class="light">
             Total Users 
@@ -280,7 +280,7 @@
       <div id="adminSettingsPage">
         <form method="POST" action="" enctype="multipart/form-data" id="nameLogoForm" class="settingsPage">
           <div id="logoPic">
-            <img id="settingsLogo" src="/images/logo_placeholder.png" alt="logo" class="logoImage">
+            <img id="settingsLogo" src="images/logo_placeholder.png" alt="logo" class="logoImage">
             <input type="file" name="logo" value="Update logo">
           </div>
           <div id="appNameDiv" class="settingsDiv">
@@ -720,7 +720,7 @@
     <div class="profile-section user-info">
       <h3>User</h3>
       <form>
-        <img id="profile-icon" src="/images/profile.jpg" alt="Profile Icon" width="60" height="60">
+        <img id="profile-icon" src="images/profile.jpg" alt="Profile Icon" width="60" height="60">
         <button id="updateProfilePic">Update photo</button>
         <button id="removeProfilePic">Remove photo</button>
         <br></br>
