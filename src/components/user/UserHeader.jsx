@@ -11,7 +11,7 @@ export default function Header() {
   const [logoUrl, setLogoUrl] = useState('');
   
   useEffect(() => {
-    fetch("http://localhost:5000/getLogoName")
+    fetch("https://wheelxwebsite.onrender.com/getLogoName")
       .then(res => res.json())
       .then(data => {
         if (data.logo) {
