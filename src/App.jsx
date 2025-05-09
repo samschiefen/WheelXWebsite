@@ -17,7 +17,7 @@ function App() {
   const [appName, setAppName] = useState('My App');
 
   useEffect(() => {
-    fetch('http://localhost:5000/getLogoName')
+    fetch('https://wheelxwebsite.onrender.com')
       .then(res => res.json())
       .then(data => {
         if (data.appName) {
