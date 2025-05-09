@@ -21,7 +21,7 @@ export default function UserDashboard() {
 
   // Fetch FAQs on component mount
   useEffect(() => {
-    fetch('http://localhost:5000/faq')
+    fetch('https://wheelxwebsite.onrender.com/faq')
       .then(res => res.json())
       .then(data => setFaqs(data))
       .catch(err => console.error('Failed to load FAQs:', err));
