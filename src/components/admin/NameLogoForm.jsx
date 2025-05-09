@@ -10,7 +10,7 @@ export default function NameLogoForm() {
 
   // Fetch current logo and app name from backend when component mounts
   useEffect(() => {
-    fetch('http://localhost:5000/getLogoName')
+    fetch('https://wheelxwebsite.onrender.com/getLogoName')
       .then(res => res.json())
       .then(data => {
         setLogo(data.logo); // Set the current logo from the backend
@@ -46,7 +46,7 @@ export default function NameLogoForm() {
     if (newAppName) formData.append('appName', newAppName);
 
     try {
-      const response = await fetch('http://localhost:5000/updateLogoName', {
+      const response = await fetch('https://wheelxwebsite.onrender.com/updateLogoName', {
         method: 'POST',
         body: formData,
       });
