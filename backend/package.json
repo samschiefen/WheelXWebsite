@@ -1,5 +1,6 @@
 {
   "name": "wheelx-app",
+  "homepage": "https://samschiefen.github.io/WheelXWebsite",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +17,9 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
