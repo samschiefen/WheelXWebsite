@@ -8,7 +8,7 @@ export default function FAQEntryForm() {
 
   // Simulate initial data fetch
   useEffect(() => {
-    fetch('http://localhost:5000/faq')
+    fetch('https://wheelxwebsite.onrender.com/faq')
         .then(res => res.json())
         .then(data => setFaqs(data))
         .catch(err => console.error('Failed to fetch FAQs:', err));
@@ -33,7 +33,7 @@ export default function FAQEntryForm() {
     e.preventDefault();
   
     try {
-      const res = await fetch('http://localhost:5000/faqs/bulk-update', {
+      const res = await fetch('https://wheelxwebsite.onrender.com/faqs/bulk-update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ faqs }), // send entire list
