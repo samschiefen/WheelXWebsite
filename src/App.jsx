@@ -17,6 +17,14 @@ function App() {
   const [appName, setAppName] = useState('My App');
 
   useEffect(() => {
+      // Filler data for app name and logo (instead of fetching from backend)
+      const mockAppName = 'WheelXInc';
+  
+      setAppName(mockAppName); 
+      document.title = mockAppName;
+    }, []);
+
+  useEffect(() => {
     fetch('http://localhost:5000/getLogoName')
       .then(res => res.json())
       .then(data => {
