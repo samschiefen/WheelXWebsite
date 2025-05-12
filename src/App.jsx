@@ -23,21 +23,6 @@ function App() {
       setAppName(mockAppName); 
       document.title = mockAppName;
     }, []);
-
-  useEffect(() => {
-    fetch('http://localhost:5000/getLogoName')
-      .then(res => res.json())
-      .then(data => {
-        if (data.appName) {
-          setAppName(data.appName);
-          document.title = data.appName;
-        }
-      })
-      .catch(err => {
-        console.error('Failed to fetch app name:', err);
-        document.title = 'My App';
-      });
-  }, []);
   
   return (
     <Router>
