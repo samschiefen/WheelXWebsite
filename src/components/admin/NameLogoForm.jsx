@@ -4,20 +4,19 @@ import '../../styles/stylesheet.css';
 
 export default function NameLogoForm() {
   const [logo, setLogo] = useState('/images/logo_placeholder.png');
-  const [appName, setAppName] = useState('');
+  const [appName, setAppName] = useState('WheelXInc');
   const [newLogo, setNewLogo] = useState(null); // To store new logo file
-  const [newAppName, setNewAppName] = useState('');
+  const [newAppName, setNewAppName] = useState('WheelXInc');
 
-  // Fetch current logo and app name from backend when component mounts
+  // Fetch current logo and app name
   useEffect(() => {
-    fetch('http://localhost:5000/getLogoName')
-      .then(res => res.json())
-      .then(data => {
-        setLogo(data.logo); // Set the current logo from the backend
-        setAppName(data.appName); // Set the current app name from the backend
-        setNewAppName(data.appName); // Initialize editable field
-      })
-      .catch(err => console.error('Error fetching app settings:', err));
+    // Filler data for app name and logo (instead of fetching from backend)
+    const mockLogo = '/images/logo_placeholder.png'; 
+    const mockAppName = 'Recycling App';
+
+    setLogo(mockLogo); 
+    setAppName(mockAppName); 
+    setNewAppName(mockAppName);
   }, []);
 
   const handleLogoChange = (e) => {
@@ -41,25 +40,26 @@ export default function NameLogoForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Normally, I'd send this data to the server, but for now, I'll log the data.
     const formData = new FormData();
     if (newLogo) formData.append('logo', newLogo);
     if (newAppName) formData.append('appName', newAppName);
 
     try {
-      const response = await fetch('http://localhost:5000/updateLogoName', {
-        method: 'POST',
-        body: formData,
-      });
+      // Simulate a successful form submission
+      console.log('Form submitted with data:', { logo: newLogo, appName: newAppName });
 
-      if (response.ok) {
-        // If the update is successful, update the state with the new values
-        const updatedSettings = await response.json();
-        setLogo(updatedSettings.logo); // Update logo with the new one
-        setAppName(updatedSettings.appName); // Update app name with the new one
-        console.log('Settings updated successfully!');
-      } else {
-        console.log('Error updating settings!');
-      }
+      // Simulating the server response after submission
+      const updatedSettings = {
+        logo: newLogo ? URL.createObjectURL(newLogo) : logo, // If new logo is provided, use that, otherwise fallback to the default
+        appName: newAppName,
+      };
+
+      // Update the state to reflect the new values
+      setLogo(updatedSettings.logo);
+      setAppName(updatedSettings.appName);
+
+      console.log('Settings updated successfully!');
     } catch (error) {
       console.error('Error submitting form:', error);
     }

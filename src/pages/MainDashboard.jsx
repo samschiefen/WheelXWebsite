@@ -21,10 +21,22 @@ export default function MainDashboard() {
 
   // Fetch FAQs on component mount
   useEffect(() => {
-    fetch('http://localhost:5000/faq')
-      .then(res => res.json())
-      .then(data => setFaqs(data))
-      .catch(err => console.error('Failed to load FAQs:', err));
+    // Filler FAQs
+    const mockFaqs = [
+      {
+        question: "How do I schedule a pickup?",
+        answer: "You can schedule a pickup through our app or website by entering your address and preferred time.",
+      },
+      {
+        question: "What materials do you accept?",
+        answer: "We accept plastics, aluminum cans, glass bottles, and cardboard.",
+      },
+      {
+        question: "Is there a cost for pickup?",
+        answer: "Pickup is free in most service areas. Check your zip code to confirm.",
+      },
+    ];
+    setFaqs(mockFaqs);
   }, []);
 
   // Toggle the visibility of the answer

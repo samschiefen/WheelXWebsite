@@ -8,10 +8,22 @@ export default function FAQEntryForm() {
 
   // Simulate initial data fetch
   useEffect(() => {
-    fetch('http://localhost:5000/faq')
-        .then(res => res.json())
-        .then(data => setFaqs(data))
-        .catch(err => console.error('Failed to fetch FAQs:', err));
+    // Filler FAQs
+    const mockFaqs = [
+      {
+        question: "How do I schedule a pickup?",
+        answer: "You can schedule a pickup through our app or website by entering your address and preferred time.",
+      },
+      {
+        question: "What materials do you accept?",
+        answer: "We accept plastics, aluminum cans, glass bottles, and cardboard.",
+      },
+      {
+        question: "Is there a cost for pickup?",
+        answer: "Pickup is free in most service areas. Check your zip code to confirm.",
+      },
+    ];
+    setFaqs(mockFaqs);
   }, []);
 
   const handleAddFAQ = () => {
@@ -31,23 +43,26 @@ export default function FAQEntryForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    // For now, just log the FAQs to simulate saving
+    console.log('FAQs to save:', faqs);
+    
+    /*
     try {
       const res = await fetch('http://localhost:5000/faqs/bulk-update', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ faqs }), // send entire list
       });
-  
+
       if (!res.ok) throw new Error('Failed to update FAQs');
-  
+
       console.log('FAQs updated successfully');
     } catch (err) {
       console.error('Error submitting FAQs:', err);
     }
+    */
   };
   
-
   return (
     <form onSubmit={handleSubmit} id="FAQEntryForm" className="settingsPage">
       <div id="FAQSettingsDiv" className="settingsDiv">
