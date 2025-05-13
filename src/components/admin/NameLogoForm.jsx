@@ -11,7 +11,7 @@ export default function NameLogoForm() {
   // Fetch current logo and app name
   useEffect(() => {
     // Filler data for app name and logo (instead of fetching from backend)
-    const mockLogo = '/images/logo_placeholder.png'; 
+    const mockLogo = '/WheelXWebsite/images/logo_placeholder.png'; 
     const mockAppName = 'Recycling App';
 
     setLogo(mockLogo); 
@@ -68,7 +68,7 @@ export default function NameLogoForm() {
   return (
     <form method="POST" action="" encType="multipart/form-data" id="nameLogoForm" className="settingsPage" onSubmit={handleSubmit}>
       <div id="logoPic">
-        <img id="settingsLogo" src={logo || '/images/logo_placeholder.png'} alt="logo" className="logoImage" />
+        <img id="settingsLogo" src={logo || '/WheelXWebsite/images/logo_placeholder.png'} alt="logo" className="logoImage" />
         <input type="file" name="logo" onChange={handleLogoChange} />
       </div>
 

@@ -51,7 +51,7 @@ export default function UserSettings() {
         <div className="profile-section user-info">
           <h3>User</h3>
           <form>
-            <img id="profile-icon" src="/images/profile.jpg" alt="Profile Icon" width="60" height="60" />
+            <img id="profile-icon" src="/WheelXWebsite/images/profile.jpg" alt="Profile Icon" width="60" height="60" />
             <button type="button" id="updateProfilePic">Update photo</button>
             <button type="button" id="removeProfilePic">Remove photo</button>
             <br /><br />

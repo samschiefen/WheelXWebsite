@@ -6,7 +6,7 @@ import '../styles/stylesheet.css';
 export default function UserProfile() {
   const [user, setUser] = useState({
     username: 'James Smith',
-    profileImage: '/images/profile.jpg',
+    profileImage: '/WheelXWebsite/images/profile.jpg',
     gender: 'Male',
     email: 'jamessmith@gmail.com',
     phone: '306-933-6764',

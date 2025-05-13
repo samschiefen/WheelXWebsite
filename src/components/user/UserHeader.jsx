@@ -11,7 +11,7 @@ export default function Header() {
   const [logoUrl, setLogoUrl] = useState('');
   
   useEffect(() => {
-    const mockLogoUrl = "/images/logo_placeholder.png"; // Placeholder logo image URL
+    const mockLogoUrl = "/WheelXWebsite/images/logo_placeholder.png"; // Placeholder logo image URL
     setLogoUrl(mockLogoUrl);
   }, []);
 
@@ -57,7 +57,7 @@ export default function Header() {
       </div>
 
       <div id="userDropdown" className="dropdown-container">
-        <img src="/images/profile.jpg" alt="Dropdown" width="40" height="40" className="dropdown" />
+        <img src="/WheelXWebsite/images/profile.jpg" alt="Dropdown" width="40" height="40" className="dropdown" />
         <div className="dropdown-content">
           <Link to='/userProfile' className="pageButton dropdown-item">Profile</Link>
           <Link to='/userSettings' className="pageButton dropdown-item">Settings</Link>

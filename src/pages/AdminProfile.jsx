@@ -9,7 +9,7 @@ export default function AdminProfile() {
     email: 'admin@gmail.com',
     phone: '306-933-6764',
     address: '201 21st Street East, S7K 0B8, Saskatoon, SK, Canada',
-    profileImage: '/images/profile.jpg'
+    profileImage: '/WheelXWebsite/images/profile.jpg'
   });
   return (
     <>

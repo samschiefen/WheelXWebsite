@@ -56,7 +56,7 @@ export default function MainDashboard() {
           <p>Our company is dedicated to increasing recycling and promoting a positive environmental impact.</p>
           <p>With our deposit-reward system, individuals and organizations can return different types of recyclable materals and get compensated for their returns.</p>
           <h2>Fast, Organized, and Easy to use.</h2>
-          <img src="/images/garbage_truck.jpg" alt="Recycling truck" id="dashboardImg" />
+          <img src="/WheelXWebsite/images/garbage_truck.jpg" alt="Recycling truck" id="dashboardImg" />
         </div>
         <div className="homepageSection" id="getEstimate">
           <h1>Get an Estimate</h1>

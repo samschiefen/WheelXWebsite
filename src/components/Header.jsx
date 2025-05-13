@@ -12,7 +12,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const mockLogoUrl = "/images/logo_placeholder.png"; // Placeholder logo image URL
+    const mockLogoUrl = "/WheelXWebsite/images/logo_placeholder.png"; // Placeholder logo image URL
     setLogoUrl(mockLogoUrl);
   }, []);
 

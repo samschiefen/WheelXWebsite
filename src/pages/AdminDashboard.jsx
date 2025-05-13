@@ -7,10 +7,10 @@ import '../styles/stylesheet.css';
 
 export default function AdminDashboard() {
   const stats = [
-    { icon: "/images/user_plus.png", label: "Registered Today", id: "userPlus", count: 0, alt: "User plus" },
-    { icon: "/images/user_clock.png", label: "Online Users", id: "userClock", count: 1, alt: "User clock" },
-    { icon: "/images/user_slash.png", label: "Unconfirmed Users", id: "userLine", count: 0, alt: "User slash" },
-    { icon: "/images/user_total.png", label: "Total Users", id: "userTotal", count: 3, alt: "User total" }
+    { icon: "/WheelXWebsite/images/user_plus.png", label: "Registered Today", id: "userPlus", count: 0, alt: "User plus" },
+    { icon: "/WheelXWebsite/images/user_clock.png", label: "Online Users", id: "userClock", count: 1, alt: "User clock" },
+    { icon: "/WheelXWebsite/images/user_slash.png", label: "Unconfirmed Users", id: "userLine", count: 0, alt: "User slash" },
+    { icon: "/WheelXWebsite/images/user_total.png", label: "Total Users", id: "userTotal", count: 3, alt: "User total" }
   ];
 
   const latestUsers = [
